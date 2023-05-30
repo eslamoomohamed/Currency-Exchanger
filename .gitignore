@@ -1,0 +1,14 @@
+# Xcode
+.DS_Store
+xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+build/
+
+# CocoaPods
+Podfile.lock
+/Pods/
+
+# Carthage
+/Carthage/
