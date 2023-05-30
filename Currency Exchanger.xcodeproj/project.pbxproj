@@ -78,6 +78,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		199268AB2A26B39100097FD4 /* Comon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Comon;
+			sourceTree = "<group>";
+		};
+		199268AC2A26B3B300097FD4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		199268AD2A26B3BE00097FD4 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		199268AE2A26B3CE00097FD4 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		199268AF2A26B3DD00097FD4 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		19F9D6AE2A26A7A400D4536A = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +136,11 @@
 		19F9D6B92A26A7A400D4536A /* Currency Exchanger */ = {
 			isa = PBXGroup;
 			children = (
+				199268AF2A26B3DD00097FD4 /* Application */,
+				199268AE2A26B3CE00097FD4 /* Presentation */,
+				199268AD2A26B3BE00097FD4 /* Domain */,
+				199268AC2A26B3B300097FD4 /* Data */,
+				199268AB2A26B39100097FD4 /* Comon */,
 				19F9D6BA2A26A7A400D4536A /* AppDelegate.swift */,
 				19F9D6BC2A26A7A400D4536A /* SceneDelegate.swift */,
 				19F9D6BE2A26A7A400D4536A /* ViewController.swift */,
