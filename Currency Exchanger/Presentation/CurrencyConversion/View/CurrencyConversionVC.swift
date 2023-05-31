@@ -7,11 +7,13 @@
 
 import UIKit
 
-class CurrencyConversionVC: UIViewController {
-    
+class CurrencyConversionVC: UIViewController, StoryboardLoadable {
+
+    var currencyViewModel: CurrencyConversionViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        assert(currencyViewModel != nil)
     }
 
 }

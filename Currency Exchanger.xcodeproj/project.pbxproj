@@ -38,6 +38,8 @@
 		1992690C2A27B77200097FD4 /* LatestRatesAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992690B2A27B77200097FD4 /* LatestRatesAPIRepository.swift */; };
 		1992690E2A27B80D00097FD4 /* UseCasesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992690D2A27B80D00097FD4 /* UseCasesAssembler.swift */; };
 		199269102A27B83300097FD4 /* RepositoryAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1992690F2A27B83300097FD4 /* RepositoryAssembler.swift */; };
+		19A3BA6E2A27CBEA00AAE9A9 /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A3BA6D2A27CBEA00AAE9A9 /* StoryboardLoadable.swift */; };
+		19A3BA702A27CC5C00AAE9A9 /* CurrencyConversionVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19A3BA6F2A27CC5B00AAE9A9 /* CurrencyConversionVC.storyboard */; };
 		19F9D6BD2A26A7A400D4536A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6BC2A26A7A400D4536A /* SceneDelegate.swift */; };
 		19F9D6BF2A26A7A400D4536A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6BE2A26A7A400D4536A /* ViewController.swift */; };
 		19F9D6C22A26A7A400D4536A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F9D6C02A26A7A400D4536A /* Main.storyboard */; };
@@ -98,6 +100,8 @@
 		1992690B2A27B77200097FD4 /* LatestRatesAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestRatesAPIRepository.swift; sourceTree = "<group>"; };
 		1992690D2A27B80D00097FD4 /* UseCasesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesAssembler.swift; sourceTree = "<group>"; };
 		1992690F2A27B83300097FD4 /* RepositoryAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAssembler.swift; sourceTree = "<group>"; };
+		19A3BA6D2A27CBEA00AAE9A9 /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
+		19A3BA6F2A27CC5B00AAE9A9 /* CurrencyConversionVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrencyConversionVC.storyboard; sourceTree = "<group>"; };
 		19F9D6B72A26A7A400D4536A /* Currency Exchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Currency Exchanger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19F9D6BC2A26A7A400D4536A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19F9D6BE2A26A7A400D4536A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 		199268AB2A26B39100097FD4 /* Comon */ = {
 			isa = PBXGroup;
 			children = (
+				19A3BA6C2A27CBE200AAE9A9 /* Helper */,
 				199268B62A26C1C700097FD4 /* Constant */,
 			);
 			path = Comon;
@@ -259,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				199268D02A27507D00097FD4 /* CurrencyConversionVC.swift */,
+				19A3BA6F2A27CC5B00AAE9A9 /* CurrencyConversionVC.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +352,14 @@
 				199268FE2A27AA5000097FD4 /* LatestRatesRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		19A3BA6C2A27CBE200AAE9A9 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				19A3BA6D2A27CBEA00AAE9A9 /* StoryboardLoadable.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		19F9D6AE2A26A7A400D4536A = {
@@ -508,6 +522,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A3BA702A27CC5C00AAE9A9 /* CurrencyConversionVC.storyboard in Resources */,
 				19F9D6CA2A26A7A700D4536A /* LaunchScreen.storyboard in Resources */,
 				19F9D6C72A26A7A700D4536A /* Assets.xcassets in Resources */,
 				19F9D6C22A26A7A400D4536A /* Main.storyboard in Resources */,
@@ -551,6 +566,7 @@
 				199268E42A276D4400097FD4 /* DependencyProvider.swift in Sources */,
 				199268CB2A27462C00097FD4 /* CurrencyConversionAPIRepository.swift in Sources */,
 				199268C12A2731CA00097FD4 /* CurrencyConversionRepository.swift in Sources */,
+				19A3BA6E2A27CBEA00AAE9A9 /* StoryboardLoadable.swift in Sources */,
 				199268BA2A272E3200097FD4 /* CurrencyConversionModel.swift in Sources */,
 				199268F02A277F8900097FD4 /* RequestParams.swift in Sources */,
 				199268DD2A27631800097FD4 /* RouterType.swift in Sources */,

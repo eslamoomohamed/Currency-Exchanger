@@ -9,18 +9,25 @@ import Foundation
 
 protocol ICurrencyConversionViewModel {
     func convertCurrency(amount: Double, fromCurrency: Currency, toCurrency: Currency, completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void)
+    func getLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
 }
 
 class CurrencyConversionViewModel: ICurrencyConversionViewModel {
 
-    private let currencyConversionUseCase: CurrencyConversionUseCase
+    private let currencyConversionUseCase: CurrencyConversionUseCaseInterface
+    private let latestRatesUseCase: LatestRateUseCaseInterface
 
     func convertCurrency(amount: Double, fromCurrency: Currency, toCurrency: Currency, completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void) {
         currencyConversionUseCase.convertCurrency(amount: amount, fromCurrency: fromCurrency, toCurrency: toCurrency, completion: completion)
     }
     
-    init(currencyConversionUseCase: CurrencyConversionUseCase) {
+    init(currencyConversionUseCase: CurrencyConversionUseCaseInterface, latestRatesUseCase: LatestRateUseCaseInterface) {
         self.currencyConversionUseCase = currencyConversionUseCase
+        self.latestRatesUseCase = latestRatesUseCase
+    }
+
+    func getLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
+        latestRatesUseCase.fetchLatestRates(baseCurrency: baseCurrency, completion: completion)
     }
     
 }
