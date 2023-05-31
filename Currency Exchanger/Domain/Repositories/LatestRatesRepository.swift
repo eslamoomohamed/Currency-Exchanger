@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LatestRatesRepository {
-    func fetchLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
+    func fetchLatestRates(baseCurrency: String, symbols: String?, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
 }

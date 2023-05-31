@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LatestRateUseCaseInterface {
-    func fetchLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
+    func fetchLatestRates(baseCurrency: String, symbols: String?, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
 }
 
 class LatestRateUseCase: LatestRateUseCaseInterface {
@@ -19,7 +19,7 @@ class LatestRateUseCase: LatestRateUseCaseInterface {
         self.latestRatesRepository = latestRatesRepository
     }
 
-    func fetchLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
-        latestRatesRepository.fetchLatestRates(baseCurrency: baseCurrency, completion: completion)
+    func fetchLatestRates(baseCurrency: String, symbols: String? = nil, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
+        latestRatesRepository.fetchLatestRates(baseCurrency: baseCurrency, symbols: symbols, completion: completion)
     }
 }

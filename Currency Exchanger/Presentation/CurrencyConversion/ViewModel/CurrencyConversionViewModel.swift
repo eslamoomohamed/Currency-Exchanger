@@ -9,7 +9,7 @@ import Foundation
 
 protocol ICurrencyConversionViewModel {
     func convertCurrency(amount: Double, fromCurrency: Currency, toCurrency: Currency, completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void)
-    func getLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
+    func getLatestRates(baseCurrency: String, symbols: String?, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
 }
 
 class CurrencyConversionViewModel: ICurrencyConversionViewModel {
@@ -26,8 +26,8 @@ class CurrencyConversionViewModel: ICurrencyConversionViewModel {
         self.latestRatesUseCase = latestRatesUseCase
     }
 
-    func getLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
-        latestRatesUseCase.fetchLatestRates(baseCurrency: baseCurrency, completion: completion)
+    func getLatestRates(baseCurrency: String, symbols: String? = nil, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
+        latestRatesUseCase.fetchLatestRates(baseCurrency: baseCurrency, symbols: symbols, completion: completion)
     }
     
 }
