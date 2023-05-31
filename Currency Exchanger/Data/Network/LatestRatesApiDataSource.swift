@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LatestRatesNetworkDataSource {
-    func fetchLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
+    func fetchLatestRates(baseCurrency: String, symbols: String?, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
 }
 
 class LatestRatesApiDataSource: LatestRatesNetworkDataSource {
@@ -19,13 +19,13 @@ class LatestRatesApiDataSource: LatestRatesNetworkDataSource {
         self.networkService = networkService
     }
 
-    func fetchLatestRates(baseCurrency: String, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
+    func fetchLatestRates(baseCurrency: String, symbols: String? = nil, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
         
-        fetch(request: createLatestRatesRequest(baseCurrency: baseCurrency), completion: completion)
+        fetch(request: createLatestRatesRequest(baseCurrency: baseCurrency, symbols: symbols), completion: completion)
     }
 
-    private func createLatestRatesRequest(baseCurrency: String) -> LatestRatesRequest {
-        return LatestRatesRequest(accessKey: FixerIoApiConstants.apiAccessKey, baseCurrency: baseCurrency)
+    private func createLatestRatesRequest(baseCurrency: String, symbols: String?) -> LatestRatesRequest {
+        return LatestRatesRequest(accessKey: FixerIoApiConstants.apiAccessKey, baseCurrency: baseCurrency, symbols: symbols)
     }
 
     private func fetch(request: LatestRatesRequest, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {

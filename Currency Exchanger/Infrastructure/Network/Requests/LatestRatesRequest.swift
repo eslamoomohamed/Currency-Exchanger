@@ -10,17 +10,22 @@ import Foundation
 struct LatestRatesRequest: Request {
     let accessKey: String
     let baseCurrency: String
+    let symbols: String?
 
     var path: String {
         return "latest"
     }
 
     var parameters: RequestParams {
-        let params: [String: Any] = [
+        var params: [String: Any] = [
             "access_key": accessKey,
             "base": baseCurrency
         ]
-        
+
+        if let symbols = symbols {
+            params["symbols"] = symbols
+        }
+
         return .url(params)
     }
 }

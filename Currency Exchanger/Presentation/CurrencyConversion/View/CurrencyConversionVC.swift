@@ -14,6 +14,14 @@ class CurrencyConversionVC: UIViewController, StoryboardLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(currencyViewModel != nil)
+        currencyViewModel.getLatestRates(baseCurrency: FixerIoApiConstants.baseCurrency) { result in
+            switch result {
+            case .success(let success):
+                print(success.rates)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
     }
 
 }
