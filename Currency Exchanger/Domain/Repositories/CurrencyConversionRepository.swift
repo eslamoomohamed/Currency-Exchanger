@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CurrencyConversionRepository {
-    func fetchCurrencyConversion(amount: Double, fromCurrency: String, toCurrency: String, completion: @escaping (Result<Double, Error>) -> Void)
+    func fetchCurrencyConversion(amount: Double, fromCurrency: Currency, toCurrency: Currency, completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void)
 }
