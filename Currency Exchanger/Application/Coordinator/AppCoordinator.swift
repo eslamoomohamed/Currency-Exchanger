@@ -9,7 +9,9 @@ import Foundation
 
 final class AppCoordinator: BaseCoordinator {
     
+    private let dependencyProvider: DependencyProvider
     override init(router: RouterType) {
+        self.dependencyProvider = DependencyProvider()
         super.init(router: router)
     }
 

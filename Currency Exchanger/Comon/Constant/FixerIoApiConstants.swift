@@ -8,6 +8,6 @@
 import Foundation
 
 struct FixerIoApiConstants {
-    static let apiAccessKey = "f041a471877430b0a51b1c21ca6e02c4"
-    static let baseUrl = "https://data.fixer.io/api/"
+    static let apiAccessKey = "8be330a7660f4612736cd1449336d277"
+    static let baseUrl = "http://data.fixer.io/api/"
 }
