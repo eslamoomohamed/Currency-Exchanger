@@ -10,13 +10,13 @@ import Foundation
 class DependencyProvider {
 
     let networkService: NetworkService
-    let currencyConversionAPIDataSource: CurrencyConversionNetworkDataSource
-    let latestRatesNetworkDataSource: LatestRatesNetworkDataSource
+    let repositoryAssembler: RepositoryAssembler
+    let useCasesAssembler: UseCasesAssembler
 
     init() {
         networkService = NetworkService(session: URLSession.shared)
-        currencyConversionAPIDataSource = CurrencyConversionAPIDataSource(networkService: networkService)
-        latestRatesNetworkDataSource = LatestRatesApiDataSource(networkService: networkService)
+        repositoryAssembler = RepositoryAssembler(networkService: networkService)
+        useCasesAssembler = UseCasesAssembler(repositoryAssembler: repositoryAssembler)
     }
 
 }
