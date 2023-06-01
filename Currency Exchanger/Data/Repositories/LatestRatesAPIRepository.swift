@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class LatestRatesAPIRepository: LatestRatesRepository {
 
@@ -15,7 +16,7 @@ class LatestRatesAPIRepository: LatestRatesRepository {
         self.networkDataSource = networkDataSource
     }
 
-    func fetchLatestRates(baseCurrency: String, symbols: String? = nil, completion: @escaping (Result<ExchangeModel, Error>) -> Void) {
-        networkDataSource.fetchLatestRates(baseCurrency: baseCurrency, symbols: symbols, completion: completion)
+    func fetchLatestRates(baseCurrency: String, symbols: String? = nil) -> AnyPublisher<ExchangeModel, Error> {
+        return networkDataSource.fetchLatestRates(baseCurrency: baseCurrency, symbols: symbols)
     }
 }

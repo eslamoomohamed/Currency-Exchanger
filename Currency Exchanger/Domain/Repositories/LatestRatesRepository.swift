@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import Combine
 
 protocol LatestRatesRepository {
-    func fetchLatestRates(baseCurrency: String, symbols: String?, completion: @escaping (Result<ExchangeModel, Error>) -> Void)
+    func fetchLatestRates(baseCurrency: String, symbols: String?) -> AnyPublisher<ExchangeModel, Error>
 }
