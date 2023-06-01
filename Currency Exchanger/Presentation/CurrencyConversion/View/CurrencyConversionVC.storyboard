@@ -34,7 +34,7 @@
                                 <rect key="frame" x="20" y="59" width="353" height="689"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="FOc-24-6QG">
-                                        <rect key="frame" x="0.0" y="40" width="353" height="516.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="40" width="353" height="569"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kQ9-T6-zw3">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="100"/>
@@ -142,6 +142,15 @@
                                                     <action selector="DetailsBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1FD-wg-Rwl"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYr-Mq-CP2" userLabel="recent">
+                                                <rect key="frame" x="0.0" y="534.66666666666663" width="353" height="34.333333333333371"/>
+                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="recent"/>
+                                                <connections>
+                                                    <action selector="recentBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zOi-fi-Ffh"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -180,6 +189,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="YkZ-tm-ZRx" userLabel="Details">
+                    <rect key="frame" x="0.0" y="0.0" width="353" height="34.333333333333336"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemMintColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Details"/>
+                    <connections>
+                        <action selector="DetailsBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0bA-dT-bbf"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="131" y="-27"/>
         </scene>

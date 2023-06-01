@@ -26,7 +26,8 @@ class CurrencyConversionVC: UIViewController, StoryboardLoadable {
     private var selectedFromCurrency = ""
     private var selectedToCurrency = ""
     var shouldShowDetailsScreen: (() -> Void)?
-    
+    var shouldShowRecentScreen: (() -> Void)?
+
     private var listOfCurrenciesSubscriber: AnyCancellable?
     private var amountToConvertSubscriber: AnyCancellable?
     private var conversionSubscriber: AnyCancellable?
@@ -51,8 +52,6 @@ class CurrencyConversionVC: UIViewController, StoryboardLoadable {
         setupAmountToConvertSubscriber()
         setupExchangeValueSubscriber()
     }
-    
-
 }
 
 // MARK: Helper methods
@@ -113,6 +112,7 @@ extension CurrencyConversionVC: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard currencyList.isEmpty != true else {return}
         if pickerView == fromPickerView {
             let selectedCurrency = currencyList[row]
             baseCurrencyTextField.text = selectedCurrency
@@ -142,6 +142,11 @@ extension CurrencyConversionVC {
     @IBAction func sswapButtonTap(_ sender: Any) {
         swap()
     }
+
+    @IBAction func recentBtnTap(_ sender: Any) {
+        shouldShowRecentScreen?()
+    }
+
 }
 
 

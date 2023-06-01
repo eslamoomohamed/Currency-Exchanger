@@ -25,15 +25,53 @@ extension AppCoordinator {
     func showCurrencyVC() {
         let currencyVC = CurrencyConversionVC.loadFromStoryboard()
         currencyVC.currencyViewModel = CurrencyConversionViewModel(currencyConversionUseCase: dependencyProvider.useCasesAssembler.assembleCurrencyConversionUseCase(),
-                                                                             latestRatesUseCase: dependencyProvider.useCasesAssembler.assembleLatestRateUseCase())
+                                                                   latestRatesUseCase: dependencyProvider.useCasesAssembler.assembleLatestRateUseCase(),
+                                                                   transactionDB: dependencyProvider.transactionDb)
         currencyVC.shouldShowDetailsScreen = { [weak self] in
             self?.showCurrenciesDetailsVC()
         }
+        currencyVC.shouldShowRecentScreen = { [weak self] in
+            self?.showRecentConversionsVC()
+            
+        }
         router.setRootViewController(currencyVC, hideBar: false)
     }
-
+    
     func showCurrenciesDetailsVC() {
         let currencyDetailsVC = CurrenciesDetailsVC.loadFromStoryboard()
+        let transactionObjs = dependencyProvider.transactionDb.realmObjects(type: TransactionObject.self)
+        let currentDate = Date()
+        let threeDaysAgo = Calendar.current.date(byAdding: .day, value: -3, to: currentDate)!
+        var transactions: [TransactionModel] = []
+        transactionObjs?
+            .forEach {
+                let transactionModel = TransactionModel(transactionObject: $0)
+                if transactionModel.transactionDate < threeDaysAgo {
+                    dependencyProvider.transactionDb.deleteObject(object: $0)
+                }else {
+                    transactions.append( TransactionModel(transactionObject: $0))
+                }
+                
+            }
+        currencyDetailsVC.currenciesDetailsViewModel = CurrenciesDetailsViewModel(transactions: transactions)
         router.push(currencyDetailsVC, animated: true, completion: nil)
     }
+
+    func showRecentConversionsVC() {
+        let recentConversionsVC = RecentConversionsVC.loadFromStoryboard()
+        let transactionObjs = dependencyProvider.transactionDb.realmObjects(type: TransactionObject.self)
+        let currentDate = Date().toString(.long)
+        var transactions: [TransactionModel] = []
+        transactionObjs?
+            .forEach {
+                let transactionModel = TransactionModel(transactionObject: $0)
+                if transactionModel.transactionDate.toString(.long) == currentDate {
+                    transactions.append( TransactionModel(transactionObject: $0))
+                }
+                
+            }
+        recentConversionsVC.recentConversionsViewModel = RecentConversionsViewModel(transactions: transactions)
+        router.push(recentConversionsVC, animated: true, completion: nil)
+    }
+
 }

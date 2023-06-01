@@ -12,11 +12,13 @@ class DependencyProvider {
     let networkService: NetworkService
     let repositoryAssembler: RepositoryAssembler
     let useCasesAssembler: UseCasesAssembler
+    let transactionDb: RealmDbType
 
     init() {
         networkService = NetworkService(session: URLSession.shared)
         repositoryAssembler = RepositoryAssembler(networkService: networkService)
         useCasesAssembler = UseCasesAssembler(repositoryAssembler: repositoryAssembler)
+        transactionDb = TransactionDb.shared
     }
 
 }

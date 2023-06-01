@@ -19,6 +19,7 @@ class CurrencyConversionViewModel: ICurrencyConversionViewModel {
     private let currencyConversionUseCase: CurrencyConversionUseCaseInterface
     private let latestRatesUseCase: LatestRateUseCaseInterface
     private var exchangeModel: ExchangeModel?
+    private let transactionDB: RealmDbType
     private var listCancellable: AnyCancellable?
     private var exchangeValueSubscriber: AnyCancellable?
     lazy var listOfCurrenciesSubject = CurrentValueSubject<[String], Never>(retrieveListOfCurrenciesFromUserDefaults() ?? [])
@@ -26,9 +27,10 @@ class CurrencyConversionViewModel: ICurrencyConversionViewModel {
 
 
     
-    init(currencyConversionUseCase: CurrencyConversionUseCaseInterface, latestRatesUseCase: LatestRateUseCaseInterface) {
+    init(currencyConversionUseCase: CurrencyConversionUseCaseInterface, latestRatesUseCase: LatestRateUseCaseInterface, transactionDB: RealmDbType) {
         self.currencyConversionUseCase = currencyConversionUseCase
         self.latestRatesUseCase = latestRatesUseCase
+        self.transactionDB = transactionDB
         getLatestRatesList(baseCurrency: FixerIoApiConstants.baseCurrency)
     }
 
@@ -56,11 +58,28 @@ extension CurrencyConversionViewModel {
 
 // MARK: Save currency list to user defaults
 extension CurrencyConversionViewModel {
-
+    
     private func retrieveListOfCurrenciesFromUserDefaults() -> [String]? {
         return UserDefaults.standard.array(forKey: "ListOfCurrencies") as? [String]
     }
-
+    
+    func createDataBaseItem(amount: Double = 1, base: String, doubleFromCurrency: Double, target: String, doubleToCurrency: Double, exchangeRate: Double) -> TransactionModel {
+        let id = self.transactionDB.initializeId()
+        return  TransactionModel(id: id,
+                                 transactionId: "reference\(id)",
+                                 transactionDate: Date(),
+                                 fromCurrencyCode: base,
+                                 fromCurrency: doubleFromCurrency,
+                                 toCurrencyCode: target,
+                                 toCurrency: doubleToCurrency,
+                                 exchangeRate: exchangeRate,
+                                 amount: amount)
+    }
+    
+    private func saveToDataBase(transactionModel: TransactionModel) {
+        let transactionObject = TransactionObject(transactionModel: transactionModel)
+        self.transactionDB.save(object: transactionObject)
+    }
 }
 
 // MARK: Change currency
@@ -72,6 +91,13 @@ extension CurrencyConversionViewModel {
         }, receiveValue: { exchangeModel in
             self.exchangeModel = exchangeModel
             self.exchangeValue = self.convertCurrency(amount: amount, baseToTargetRate: self.extractCurrencyValue(currencyKey: base), targetToBaseRate: self.extractCurrencyValue(currencyKey: target))
+            DispatchQueue.main.async {
+                self.saveToDataBase(transactionModel: self.createDataBaseItem(base: base,
+                                                                              doubleFromCurrency: self.extractCurrencyValue(currencyKey: base),
+                                                                              target: target, doubleToCurrency: self.extractCurrencyValue(currencyKey: target),
+                                                                              exchangeRate: self.exchangeValue))
+            }
+
         })
     }
 

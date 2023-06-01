@@ -7,6 +7,7 @@ target 'Currency Exchanger' do
 
   # Pods for Currency Exchanger
     pod 'RxSwift'
+    pod 'RealmSwift'
 
   target 'Currency ExchangerTests' do
     inherit! :search_paths

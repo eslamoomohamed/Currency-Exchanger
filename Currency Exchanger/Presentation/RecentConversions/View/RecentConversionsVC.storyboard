@@ -9,15 +9,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Currencies DetailsVC-->
+        <!--Recent ConversionsVC-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="CurrenciesDetailsVC" id="Y6W-OH-hqX" customClass="CurrenciesDetailsVC" customModule="Currency_Exchanger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecentConversionsVC" id="Y6W-OH-hqX" customClass="RecentConversionsVC" customModule="Currency_Exchanger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OZp-VO-pZq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wjc-fO-c13">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -25,19 +25,19 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OZp-VO-pZq" secondAttribute="bottom" id="UFY-p6-TqQ"/>
-                            <constraint firstItem="OZp-VO-pZq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="VOp-TG-hFt"/>
-                            <constraint firstItem="OZp-VO-pZq" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="VYK-IP-V7V"/>
-                            <constraint firstItem="OZp-VO-pZq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cux-4b-yj8"/>
+                            <constraint firstItem="Wjc-fO-c13" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TQi-U4-FVp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Wjc-fO-c13" secondAttribute="trailing" id="eSe-Yn-Rta"/>
+                            <constraint firstItem="Wjc-fO-c13" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rkk-Rh-Kyc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Wjc-fO-c13" secondAttribute="bottom" id="ywc-7R-gQs"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="transactionsTableView" destination="OZp-VO-pZq" id="aOk-36-Y5K"/>
+                        <outlet property="transactionsTableView" destination="Wjc-fO-c13" id="Pas-6p-BJJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-138" y="-27"/>
+            <point key="canvasLocation" x="-19" y="4"/>
         </scene>
     </scenes>
     <resources>
