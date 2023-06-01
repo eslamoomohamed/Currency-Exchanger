@@ -26,6 +26,14 @@ extension AppCoordinator {
         let currencyVC = CurrencyConversionVC.loadFromStoryboard()
         currencyVC.currencyViewModel = CurrencyConversionViewModel(currencyConversionUseCase: dependencyProvider.useCasesAssembler.assembleCurrencyConversionUseCase(),
                                                                              latestRatesUseCase: dependencyProvider.useCasesAssembler.assembleLatestRateUseCase())
-        router.setRootViewController(currencyVC, hideBar: true)
+        currencyVC.shouldShowDetailsScreen = { [weak self] in
+            self?.showCurrenciesDetailsVC()
+        }
+        router.setRootViewController(currencyVC, hideBar: false)
+    }
+
+    func showCurrenciesDetailsVC() {
+        let currencyDetailsVC = CurrenciesDetailsVC.loadFromStoryboard()
+        router.push(currencyDetailsVC, animated: true, completion: nil)
     }
 }

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4Q-g2-vxz">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4Q-g2-vxz">
                                 <rect key="frame" x="20" y="748" width="353" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
@@ -26,12 +26,15 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Convert Currency"/>
+                                <connections>
+                                    <action selector="convertCurrencyBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uVP-77-AbT"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uan-nT-T2u">
                                 <rect key="frame" x="20" y="59" width="353" height="689"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="FOc-24-6QG">
-                                        <rect key="frame" x="0.0" y="40" width="353" height="296"/>
+                                        <rect key="frame" x="0.0" y="40" width="353" height="516.66666666666663"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kQ9-T6-zw3">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="100"/>
@@ -39,17 +42,12 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="ecN-o6-fbg">
                                                         <rect key="frame" x="20" y="0.0" width="313" height="29"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgm-bn-L2u">
-                                                                <rect key="frame" x="0.0" y="4.3333333333333286" width="146" height="20.333333333333332"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to select currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgm-bn-L2u">
+                                                                <rect key="frame" x="0.0" y="4.3333333333333286" width="313" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a09-1P-tZ0">
-                                                                <rect key="frame" x="167" y="0.0" width="146" height="29"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="currency"/>
-                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="29" id="dBM-fG-9Je"/>
@@ -83,17 +81,12 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="9db-lx-crr">
                                                         <rect key="frame" x="20" y="0.0" width="313" height="29"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NC2-qd-MLw">
-                                                                <rect key="frame" x="0.0" y="4.3333333333333144" width="146" height="20.333333333333332"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to select currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NC2-qd-MLw">
+                                                                <rect key="frame" x="0.0" y="4.3333333333333144" width="313" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpb-gG-u1I">
-                                                                <rect key="frame" x="167" y="0.0" width="146" height="29"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" title="currency"/>
-                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="29" id="8jP-rl-CWj"/>
@@ -115,6 +108,40 @@
                                                     <constraint firstItem="9db-lx-crr" firstAttribute="leading" secondItem="X0t-DQ-Eog" secondAttribute="leading" constant="20" id="gsc-sA-4D8"/>
                                                 </constraints>
                                             </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount to convert" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1I4-vo-QWn">
+                                                <rect key="frame" x="0.0" y="314" width="353" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Q7d-yG-7Ok"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cn-S7-g8B">
+                                                <rect key="frame" x="0.0" y="382" width="353" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="3ga-8d-4Pd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmC-xT-S1l">
+                                                <rect key="frame" x="0.0" y="430" width="353" height="34.333333333333314"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="swap"/>
+                                                <connections>
+                                                    <action selector="sswapButtonTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="rmL-Zt-98w"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="es5-Jf-RdS" userLabel="Details">
+                                                <rect key="frame" x="0.0" y="482.33333333333337" width="353" height="34.333333333333371"/>
+                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Details"/>
+                                                <connections>
+                                                    <action selector="DetailsBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1FD-wg-Rwl"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -141,6 +168,16 @@
                             <constraint firstItem="Uan-nT-T2u" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vyn-tp-7Hv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountToConvertTF" destination="1I4-vo-QWn" id="j0e-xQ-vn4"/>
+                        <outlet property="arrowImage" destination="VHf-Ld-axi" id="znC-NV-pxN"/>
+                        <outlet property="baseCurrencyLabel" destination="xgm-bn-L2u" id="tPb-f4-Qkn"/>
+                        <outlet property="baseCurrencyTextField" destination="w1d-7x-NMy" id="S3z-QN-uzS"/>
+                        <outlet property="convertCurrencyBtn" destination="W4Q-g2-vxz" id="8wz-Tx-fPL"/>
+                        <outlet property="resultValueLB" destination="7cn-S7-g8B" id="GRx-92-5QE"/>
+                        <outlet property="seconderyCurrencyLabel" destination="NC2-qd-MLw" id="hPQ-F2-1ai"/>
+                        <outlet property="seconderyCurrencyTextField" destination="DjO-Qj-fmw" id="TRC-7A-qBb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,6 +191,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

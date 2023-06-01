@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1971AD5F2A29016200F2491C /* CurrenciesDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971AD5E2A29016200F2491C /* CurrenciesDetailsVC.swift */; };
+		1971AD612A29017000F2491C /* CurrenciesDetailsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1971AD602A29017000F2491C /* CurrenciesDetailsVC.storyboard */; };
 		199268B42A26BFF100097FD4 /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B32A26BFF100097FD4 /* ExchangeModel.swift */; };
 		199268B82A26C20100097FD4 /* FixerIoApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B72A26C20100097FD4 /* FixerIoApiConstants.swift */; };
 		199268BA2A272E3200097FD4 /* CurrencyConversionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B92A272E3200097FD4 /* CurrencyConversionModel.swift */; };
@@ -72,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1971AD5E2A29016200F2491C /* CurrenciesDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesDetailsVC.swift; sourceTree = "<group>"; };
+		1971AD602A29017000F2491C /* CurrenciesDetailsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CurrenciesDetailsVC.storyboard; sourceTree = "<group>"; };
 		199268B32A26BFF100097FD4 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeModel.swift; sourceTree = "<group>"; };
 		199268B72A26C20100097FD4 /* FixerIoApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerIoApiConstants.swift; sourceTree = "<group>"; };
 		199268B92A272E3200097FD4 /* CurrencyConversionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionModel.swift; sourceTree = "<group>"; };
@@ -157,6 +161,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1971AD5B2A2900DE00F2491C /* CurrenciesDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1971AD5C2A2900F900F2491C /* view */,
+				1971AD5D2A29012B00F2491C /* ViewModel */,
+			);
+			path = CurrenciesDetails;
+			sourceTree = "<group>";
+		};
+		1971AD5C2A2900F900F2491C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				1971AD5E2A29016200F2491C /* CurrenciesDetailsVC.swift */,
+				1971AD602A29017000F2491C /* CurrenciesDetailsVC.storyboard */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		1971AD5D2A29012B00F2491C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		199268AB2A26B39100097FD4 /* Comon */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +218,7 @@
 		199268AE2A26B3CE00097FD4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1971AD5B2A2900DE00F2491C /* CurrenciesDetails */,
 				199268CC2A274E7F00097FD4 /* CurrencyConversion */,
 			);
 			path = Presentation;
@@ -455,7 +485,6 @@
 				F648CB2E77CEA37F5959D102 /* Pods-Currency ExchangerTests.debug.xcconfig */,
 				3F7196E70E7D364F8366D053 /* Pods-Currency ExchangerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -571,6 +600,7 @@
 				19A3BA702A27CC5C00AAE9A9 /* CurrencyConversionVC.storyboard in Resources */,
 				19F9D6CA2A26A7A700D4536A /* LaunchScreen.storyboard in Resources */,
 				19F9D6C72A26A7A700D4536A /* Assets.xcassets in Resources */,
+				1971AD612A29017000F2491C /* CurrenciesDetailsVC.storyboard in Resources */,
 				19F9D6C22A26A7A400D4536A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,6 +755,7 @@
 				199268EB2A277E1D00097FD4 /* Request.swift in Sources */,
 				19F9D6BD2A26A7A400D4536A /* SceneDelegate.swift in Sources */,
 				199268B82A26C20100097FD4 /* FixerIoApiConstants.swift in Sources */,
+				1971AD5F2A29016200F2491C /* CurrenciesDetailsVC.swift in Sources */,
 				199269082A27B70C00097FD4 /* LatestRatesUseCase.swift in Sources */,
 				199268E12A27669200097FD4 /* AppCoordinator.swift in Sources */,
 				199268FC2A279C5B00097FD4 /* AppDelegate.swift in Sources */,
