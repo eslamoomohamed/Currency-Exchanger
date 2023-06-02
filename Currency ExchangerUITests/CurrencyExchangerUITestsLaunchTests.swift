@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class Currency_ExchangerUITestsLaunchTests: XCTestCase {
+final class CurrencyExchangerUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

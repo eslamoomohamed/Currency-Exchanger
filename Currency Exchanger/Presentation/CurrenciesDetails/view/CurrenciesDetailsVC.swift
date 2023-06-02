@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CurrenciesDetailsVC: UIViewController, StoryboardLoadable{
-    
-    @IBOutlet weak var transactionsTableView: UITableView!
+class CurrenciesDetailsVC: UIViewController, StoryboardLoadable {
+
+    @IBOutlet private weak var transactionsTableView: UITableView!
     var currenciesDetailsViewModel: CurrenciesDetailsViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class CurrenciesDetailsVC: UIViewController, StoryboardLoadable{
         print(currenciesDetailsViewModel.transactions)
         setupTableView()
     }
-    
+
     private func setupTableView() {
         transactionsTableView
             .registerCellClassForNib(cellClass: TransactionTableViewCell.self)
@@ -27,19 +27,18 @@ class CurrenciesDetailsVC: UIViewController, StoryboardLoadable{
 }
 
 extension CurrenciesDetailsVC: UITableViewDataSource {
-    
-    
+
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return currenciesDetailsViewModel.transactions.count
     }
-    func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseID) as? TransactionTableViewCell
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let reuseID = TransactionTableViewCell.reuseID
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID) as? TransactionTableViewCell
+
         let transactionModel = currenciesDetailsViewModel.transactions[indexPath.row]
         let cellModel = CurrenciesDetailsViewModel.convertToCellModel(transactionModel)
         cell?.configureCell(with: cellModel)
         return cell ?? UITableViewCell()
     }
 }
-

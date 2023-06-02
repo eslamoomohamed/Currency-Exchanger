@@ -7,6 +7,8 @@
 
 import UIKit
 
+// swiftlint:disable force_cast
+
 protocol StoryboardLoadable {
 
     static var storyboardId: String { get }
@@ -28,3 +30,4 @@ extension StoryboardLoadable where Self: UIViewController {
         return storyboard.instantiateViewController(withIdentifier: Self.storyboardControllerId) as! Self
     }
 }
+// swiftlint:enable force_cast

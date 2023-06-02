@@ -17,7 +17,7 @@ struct TransactionModel {
     let toCurrency: Double
     let exchangeRate: Double
     let amount: Double
-    
+
     init(id: Int,
          transactionId: String,
          transactionDate: Date,

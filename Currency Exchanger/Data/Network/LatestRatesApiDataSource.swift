@@ -41,7 +41,9 @@ class LatestRatesApiDataSource: LatestRatesNetworkDataSource {
     }
 
     private func createLatestRatesRequest(baseCurrency: String, symbols: String?) -> LatestRatesRequest {
-        return LatestRatesRequest(accessKey: FixerIoApiConstants.apiAccessKey, baseCurrency: baseCurrency, symbols: symbols)
+        return LatestRatesRequest(accessKey: FixerIoApiConstants.apiAccessKey,
+                                  baseCurrency: baseCurrency,
+                                  symbols: symbols)
     }
 
     private func fetch(request: LatestRatesRequest) -> AnyPublisher<Data?, Error> {

@@ -10,13 +10,12 @@ import UIKit
 class TransactionTableViewCell: UITableViewCell {
 
     static let reuseID = "TransactionTableViewCell"
-    
-    @IBOutlet weak var fromCurrency: UILabel!
-    @IBOutlet weak var toCurrency: UILabel!
-    @IBOutlet weak var amount: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    
+
+    @IBOutlet weak private var fromCurrency: UILabel!
+    @IBOutlet weak private var toCurrency: UILabel!
+    @IBOutlet weak private var amount: UILabel!
+    @IBOutlet weak private var dateLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

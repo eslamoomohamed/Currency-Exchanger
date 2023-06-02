@@ -13,7 +13,7 @@ class TransactionDb: RealmDbType {
     var schemaVersion: UInt64 { 1 }
     var objectTypes: [Object.Type] {[TransactionObject.self]}
     var realm: Realm?
-     
+
     static let shared: TransactionDb = TransactionDb()
     private init() {
         self.initializeDB { success, _ in
@@ -26,6 +26,6 @@ class TransactionDb: RealmDbType {
 
 extension TransactionDb {
     func initializeId() -> Int {
-        return (self.realmObjects(type: TransactionObject.self)?.map{$0.id}.max() ?? 0) + 1
+        return (self.realmObjects(type: TransactionObject.self)?.map { $0.id }.max() ?? 0) + 1
     }
 }

@@ -8,21 +8,28 @@
 import Foundation
 
 protocol CurrencyConversionUseCaseInterface {
-    func convertCurrency(amount: Double, fromCurrency: Currency, toCurrency: Currency, completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void)
+    func convertCurrency(amount: Double,
+                         fromCurrency: Currency,
+                         toCurrency: Currency,
+                         completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void)
 }
 
 class CurrencyConversionUseCase: CurrencyConversionUseCaseInterface {
 
     private let currencyConversionRepository: CurrencyConversionRepository
 
-
     init(currencyConversionRepository: CurrencyConversionRepository) {
         self.currencyConversionRepository = currencyConversionRepository
     }
 
-    func convertCurrency(amount: Double, fromCurrency: Currency, toCurrency: Currency, completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void) {
-        currencyConversionRepository.fetchCurrencyConversion(amount: amount, fromCurrency: fromCurrency, toCurrency: toCurrency, completion: completion)
+    func convertCurrency(amount: Double,
+                         fromCurrency: Currency,
+                         toCurrency: Currency,
+                         completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void) {
+        currencyConversionRepository.fetchCurrencyConversion(amount: amount
+                                                             , fromCurrency: fromCurrency,
+                                                             toCurrency: toCurrency,
+                                                             completion: completion)
     }
-    
-    
+
 }

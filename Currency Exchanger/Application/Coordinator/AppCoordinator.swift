@@ -8,7 +8,7 @@
 import Foundation
 
 final class AppCoordinator: BaseCoordinator {
-    
+
     private let dependencyProvider: DependencyProvider
     override init(router: RouterType) {
         self.dependencyProvider = DependencyProvider()
@@ -21,26 +21,28 @@ final class AppCoordinator: BaseCoordinator {
 }
 
 extension AppCoordinator {
-    
+
     func showCurrencyVC() {
         let currencyVC = CurrencyConversionVC.loadFromStoryboard()
-        currencyVC.currencyViewModel = CurrencyConversionViewModel(currencyConversionUseCase: dependencyProvider.useCasesAssembler.assembleCurrencyConversionUseCase(),
-                                                                   latestRatesUseCase: dependencyProvider.useCasesAssembler.assembleLatestRateUseCase(),
+        let currencyConversionUseCase = dependencyProvider.useCasesAssembler.assembleCurrencyConversionUseCase()
+        let latestRatesUseCase = dependencyProvider.useCasesAssembler.assembleLatestRateUseCase()
+        currencyVC.currencyViewModel = CurrencyConversionViewModel(currencyConversionUseCase: currencyConversionUseCase,
+                                                                   latestRatesUseCase: latestRatesUseCase,
                                                                    transactionDB: dependencyProvider.transactionDb)
         currencyVC.shouldShowDetailsScreen = { [weak self] in
             self?.showCurrenciesDetailsVC()
         }
         currencyVC.shouldShowRecentScreen = { [weak self] in
             self?.showRecentConversionsVC()
-            
+
         }
         currencyVC.shouldShowOtherCurrenciesScreen = { [weak self] transactionsModel in
             self?.showOtherCurrenciesConversion(transactionModel: transactionsModel)
-            
+
         }
         router.setRootViewController(currencyVC, hideBar: false)
     }
-    
+
     func showCurrenciesDetailsVC() {
         let currencyDetailsVC = CurrenciesDetailsVC.loadFromStoryboard()
         let transactionObjs = dependencyProvider.transactionDb.realmObjects(type: TransactionObject.self)
@@ -52,10 +54,10 @@ extension AppCoordinator {
                 let transactionModel = TransactionModel(transactionObject: $0)
                 if transactionModel.transactionDate < threeDaysAgo {
                     dependencyProvider.transactionDb.deleteObject(object: $0)
-                }else {
+                } else {
                     transactions.append( TransactionModel(transactionObject: $0))
                 }
-                
+
             }
         currencyDetailsVC.currenciesDetailsViewModel = CurrenciesDetailsViewModel(transactions: transactions)
         router.push(currencyDetailsVC, animated: true, completion: nil)
@@ -72,7 +74,7 @@ extension AppCoordinator {
                 if transactionModel.transactionDate.toString(.long) == currentDate {
                     transactions.append( TransactionModel(transactionObject: $0))
                 }
-                
+
             }
         recentConversionsVC.recentConversionsViewModel = RecentConversionsViewModel(transactions: transactions)
         router.push(recentConversionsVC, animated: true, completion: nil)
@@ -80,9 +82,10 @@ extension AppCoordinator {
 
     func showOtherCurrenciesConversion(transactionModel: [TransactionModel]) {
         let otherCurrenciesConverionsVC = OtherCurrenciesConverionsVC.loadFromStoryboard()
-        otherCurrenciesConverionsVC.otherCurrenciesConverionsViewModel = OtherCurrenciesConverionsViewModel(transactionsModel: transactionModel)
+        let viewModel = OtherCurrenciesConverionsViewModel(transactionsModel: transactionModel)
+        otherCurrenciesConverionsVC.otherCurrenciesConverionsViewModel = viewModel
         router.push(otherCurrenciesConverionsVC, animated: true, completion: nil)
-        
+
     }
 
 }

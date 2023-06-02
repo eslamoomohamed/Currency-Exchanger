@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 enum DateFormat {
     case long
 }

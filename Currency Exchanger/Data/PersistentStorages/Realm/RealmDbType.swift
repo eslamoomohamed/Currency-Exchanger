@@ -13,7 +13,7 @@ protocol RealmDbType: AnyObject {
     var realm: Realm? { get set }
     var schemaVersion: UInt64 { get }
     var objectTypes: [Object.Type] { get }
-    
+
     func initializeDB(completion: (_ success: Bool, _ error: Error?) -> Void)
     func save<T: Object>(object: T)
     func realmObjects<T: Object>(type: T.Type) -> [T]?
@@ -39,7 +39,7 @@ extension RealmDbType {
             try self.realm?.write {
                 self.realm?.add(object, update: .modified)
             }
-        } catch (let error) {
+        } catch let error {
             fatalError("RealmDB: (\(dbName)), save[T]: \(error.localizedDescription)")
         }
     }
@@ -57,14 +57,14 @@ extension RealmDbType {
             print("Failed to delete object: \(error)")
         }
     }
-    
+
 }
 
 extension RealmDbType {
     private func getDBURL(name: String) -> URL {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let url: URL =  URL(fileURLWithPath: documentsPath).appendingPathComponent("Realm")
-        
+
         var isDir: ObjCBool = false
         if FileManager.default.fileExists(atPath: url.path, isDirectory: &isDir) {
             if !isDir.boolValue {
@@ -73,11 +73,11 @@ extension RealmDbType {
         } else {
             createDirectory(url)
         }
-        
+
         let dbURL = url.appendingPathComponent(name)
         return dbURL
     }
-    
+
     private func createDirectory(_ path: URL) {
         do {
             try FileManager.default.createDirectory(at: path,

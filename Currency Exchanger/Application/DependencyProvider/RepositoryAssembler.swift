@@ -9,11 +9,11 @@ import Foundation
 
 class RepositoryAssembler {
     private let networkService: NetworkServiceInterface
-    
+
     init(networkService: NetworkServiceInterface) {
         self.networkService = networkService
     }
-    
+
     func assembleCurrencyConversionRepository() -> CurrencyConversionRepository {
         let networkDataSource = CurrencyConversionAPIDataSource(networkService: networkService)
         return CurrencyConversionAPIRepository(networkDataSource: networkDataSource)

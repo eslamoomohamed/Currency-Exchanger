@@ -10,11 +10,11 @@ import Foundation
 class UseCasesAssembler {
 
     private let repositoryAssembler: RepositoryAssembler
-    
+
     init(repositoryAssembler: RepositoryAssembler) {
         self.repositoryAssembler = repositoryAssembler
     }
-    
+
     func assembleCurrencyConversionUseCase() -> CurrencyConversionUseCaseInterface {
         let currencyConversionRepository = repositoryAssembler.assembleCurrencyConversionRepository()
         return CurrencyConversionUseCase(currencyConversionRepository: currencyConversionRepository)

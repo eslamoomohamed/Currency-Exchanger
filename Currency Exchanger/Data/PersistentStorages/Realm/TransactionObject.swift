@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class TransactionObject: Object {
-    
+
     @objc dynamic var id: Int = 0
     @objc dynamic public var transactionId: String = ""
     @objc dynamic public var transactionDate: Date = Date()
@@ -19,7 +19,6 @@ class TransactionObject: Object {
     @objc dynamic public var toCurrency: Double = 0.00
     @objc dynamic public var exchangeRate: Double = 0.00
     @objc dynamic public var amount: Double = 0.00
-    
 
     convenience init(transactionModel: TransactionModel) {
         self.init()

@@ -8,8 +8,8 @@
 import UIKit
 
 class RecentConversionsVC: UIViewController, StoryboardLoadable {
-    @IBOutlet weak var transactionsTableView: UITableView!
-    
+    @IBOutlet weak private var transactionsTableView: UITableView!
+
     var recentConversionsViewModel: RecentConversionsViewModel!
 
     override func viewDidLoad() {
@@ -17,7 +17,6 @@ class RecentConversionsVC: UIViewController, StoryboardLoadable {
 
         setupTableView()
     }
-    
 
     private func setupTableView() {
         transactionsTableView
@@ -29,15 +28,15 @@ class RecentConversionsVC: UIViewController, StoryboardLoadable {
 }
 
 extension RecentConversionsVC: UITableViewDataSource {
-    
-    
+
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return recentConversionsViewModel.transactions.count
     }
-    func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseID) as? TransactionTableViewCell
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let reuseID = TransactionTableViewCell.reuseID
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID) as? TransactionTableViewCell
+
         let transactionModel = recentConversionsViewModel.transactions[indexPath.row]
         let cellModel = CurrenciesDetailsViewModel.convertToCellModel(transactionModel)
         cell?.configureCell(with: cellModel)

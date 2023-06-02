@@ -29,7 +29,7 @@ struct CurrencyConversionRequest: Request {
             "to": toCurrency,
             "amount": String(amount)
         ]
-        
+
         return .url(params)
     }
 

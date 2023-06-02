@@ -8,9 +8,9 @@
 import UIKit
 
 class OtherCurrenciesConverionsVC: UIViewController, StoryboardLoadable {
-    
-    @IBOutlet weak var transactionsTableView: UITableView!
-    
+
+    @IBOutlet weak private var transactionsTableView: UITableView!
+
     var otherCurrenciesConverionsViewModel: OtherCurrenciesConverionsViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,6 @@ class OtherCurrenciesConverionsVC: UIViewController, StoryboardLoadable {
         assert(otherCurrenciesConverionsViewModel != nil)
         setupTableView()
     }
-    
 
     private func setupTableView() {
         transactionsTableView
@@ -29,19 +28,18 @@ class OtherCurrenciesConverionsVC: UIViewController, StoryboardLoadable {
 }
 
 extension OtherCurrenciesConverionsVC: UITableViewDataSource {
-    
-    
+
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return otherCurrenciesConverionsViewModel.transactionsModel.count
     }
-    func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseID) as? TransactionTableViewCell
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let reusID = TransactionTableViewCell.reuseID
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusID) as? TransactionTableViewCell
+
         let transactionModel = otherCurrenciesConverionsViewModel.transactionsModel[indexPath.row]
         let cellModel = OtherCurrenciesConverionsViewModel.convertToCellModel(transactionModel)
         cell?.configureCell(with: cellModel)
         return cell ?? UITableViewCell()
     }
 }
-

@@ -64,9 +64,9 @@
 		19F9D6C52A26A7A400D4536A /* Currency_Exchanger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6C32A26A7A400D4536A /* Currency_Exchanger.xcdatamodeld */; };
 		19F9D6C72A26A7A700D4536A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19F9D6C62A26A7A700D4536A /* Assets.xcassets */; };
 		19F9D6CA2A26A7A700D4536A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19F9D6C82A26A7A700D4536A /* LaunchScreen.storyboard */; };
-		19F9D6D52A26A7A700D4536A /* Currency_ExchangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6D42A26A7A700D4536A /* Currency_ExchangerTests.swift */; };
-		19F9D6DF2A26A7A700D4536A /* Currency_ExchangerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6DE2A26A7A700D4536A /* Currency_ExchangerUITests.swift */; };
-		19F9D6E12A26A7A700D4536A /* Currency_ExchangerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6E02A26A7A700D4536A /* Currency_ExchangerUITestsLaunchTests.swift */; };
+		19F9D6D52A26A7A700D4536A /* CurrencyExchangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6D42A26A7A700D4536A /* CurrencyExchangerTests.swift */; };
+		19F9D6DF2A26A7A700D4536A /* CurrencyExchangerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6DE2A26A7A700D4536A /* CurrencyExchangerUITests.swift */; };
+		19F9D6E12A26A7A700D4536A /* CurrencyExchangerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F9D6E02A26A7A700D4536A /* CurrencyExchangerUITestsLaunchTests.swift */; };
 		239AEA1DCBCC6A7C4EB64B8C /* Pods_Currency_Exchanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AD844586470514E083DD6D /* Pods_Currency_Exchanger.framework */; };
 		253934236F660B212808C750 /* Pods_Currency_Exchanger_Currency_ExchangerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D046E6A01F24B7CF3BE2F0DF /* Pods_Currency_Exchanger_Currency_ExchangerUITests.framework */; };
 		9EA73420F28053A213C35C54 /* Pods_Currency_ExchangerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC03C68FAD3355170CD5E290 /* Pods_Currency_ExchangerTests.framework */; };
@@ -150,10 +150,10 @@
 		19F9D6C92A26A7A700D4536A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19F9D6CB2A26A7A700D4536A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19F9D6D02A26A7A700D4536A /* Currency ExchangerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Currency ExchangerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		19F9D6D42A26A7A700D4536A /* Currency_ExchangerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ExchangerTests.swift; sourceTree = "<group>"; };
+		19F9D6D42A26A7A700D4536A /* CurrencyExchangerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangerTests.swift; sourceTree = "<group>"; };
 		19F9D6DA2A26A7A700D4536A /* Currency ExchangerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Currency ExchangerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		19F9D6DE2A26A7A700D4536A /* Currency_ExchangerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ExchangerUITests.swift; sourceTree = "<group>"; };
-		19F9D6E02A26A7A700D4536A /* Currency_ExchangerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_ExchangerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		19F9D6DE2A26A7A700D4536A /* CurrencyExchangerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangerUITests.swift; sourceTree = "<group>"; };
+		19F9D6E02A26A7A700D4536A /* CurrencyExchangerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyExchangerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1BCAFD206F5A586BE06AD7CD /* Pods-Currency Exchanger-Currency ExchangerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Exchanger-Currency ExchangerUITests.debug.xcconfig"; path = "Target Support Files/Pods-Currency Exchanger-Currency ExchangerUITests/Pods-Currency Exchanger-Currency ExchangerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2786FD4A5039BA21AD6A53F3 /* Pods-Currency Exchanger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency Exchanger.release.xcconfig"; path = "Target Support Files/Pods-Currency Exchanger/Pods-Currency Exchanger.release.xcconfig"; sourceTree = "<group>"; };
 		3F7196E70E7D364F8366D053 /* Pods-Currency ExchangerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Currency ExchangerTests.release.xcconfig"; path = "Target Support Files/Pods-Currency ExchangerTests/Pods-Currency ExchangerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -563,7 +563,7 @@
 		19F9D6D32A26A7A700D4536A /* Currency ExchangerTests */ = {
 			isa = PBXGroup;
 			children = (
-				19F9D6D42A26A7A700D4536A /* Currency_ExchangerTests.swift */,
+				19F9D6D42A26A7A700D4536A /* CurrencyExchangerTests.swift */,
 			);
 			path = "Currency ExchangerTests";
 			sourceTree = "<group>";
@@ -571,8 +571,8 @@
 		19F9D6DD2A26A7A700D4536A /* Currency ExchangerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				19F9D6DE2A26A7A700D4536A /* Currency_ExchangerUITests.swift */,
-				19F9D6E02A26A7A700D4536A /* Currency_ExchangerUITestsLaunchTests.swift */,
+				19F9D6DE2A26A7A700D4536A /* CurrencyExchangerUITests.swift */,
+				19F9D6E02A26A7A700D4536A /* CurrencyExchangerUITestsLaunchTests.swift */,
 			);
 			path = "Currency ExchangerUITests";
 			sourceTree = "<group>";
@@ -612,6 +612,7 @@
 				19F9D6B42A26A7A400D4536A /* Frameworks */,
 				19F9D6B52A26A7A400D4536A /* Resources */,
 				F5144D35C32B085FDF268C54 /* [CP] Embed Pods Frameworks */,
+				195511C42A2A25D800E04C05 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -737,6 +738,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		195511C42A2A25D800E04C05 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		97247AEE141EE74BC5DF0A89 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -900,7 +919,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F9D6D52A26A7A700D4536A /* Currency_ExchangerTests.swift in Sources */,
+				19F9D6D52A26A7A700D4536A /* CurrencyExchangerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,8 +927,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F9D6DF2A26A7A700D4536A /* Currency_ExchangerUITests.swift in Sources */,
-				19F9D6E12A26A7A700D4536A /* Currency_ExchangerUITestsLaunchTests.swift in Sources */,
+				19F9D6DF2A26A7A700D4536A /* CurrencyExchangerUITests.swift in Sources */,
+				19F9D6E12A26A7A700D4536A /* CurrencyExchangerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
