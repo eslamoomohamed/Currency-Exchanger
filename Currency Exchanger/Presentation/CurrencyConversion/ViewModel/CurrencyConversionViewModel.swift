@@ -24,6 +24,7 @@ class CurrencyConversionViewModel: ICurrencyConversionViewModel {
     private var exchangeValueSubscriber: AnyCancellable?
     lazy var listOfCurrenciesSubject = CurrentValueSubject<[String], Never>(retrieveListOfCurrenciesFromUserDefaults() ?? [])
     @Published var exchangeValue = 1.0
+    var randomTransactions: [TransactionModel] = [TransactionModel]()
 
 
     
@@ -63,10 +64,14 @@ extension CurrencyConversionViewModel {
         return UserDefaults.standard.array(forKey: "ListOfCurrencies") as? [String]
     }
     
-    func createDataBaseItem(amount: Double = 1, base: String, doubleFromCurrency: Double, target: String, doubleToCurrency: Double, exchangeRate: Double) -> TransactionModel {
-        let id = self.transactionDB.initializeId()
+    func createDataBaseItem(amount: Double , base: String, doubleFromCurrency: Double, target: String, doubleToCurrency: Double, exchangeRate: Double, shouldSkipID: Bool = false) -> TransactionModel {
+        var id = self.transactionDB.initializeId()
+        if shouldSkipID{
+            id = 0
+        }
+
         return  TransactionModel(id: id,
-                                 transactionId: "reference\(id)",
+                                 transactionId: "transactionId \(id)",
                                  transactionDate: Date(),
                                  fromCurrencyCode: base,
                                  fromCurrency: doubleFromCurrency,
@@ -92,12 +97,14 @@ extension CurrencyConversionViewModel {
             self.exchangeModel = exchangeModel
             self.exchangeValue = self.convertCurrency(amount: amount, baseToTargetRate: self.extractCurrencyValue(currencyKey: base), targetToBaseRate: self.extractCurrencyValue(currencyKey: target))
             DispatchQueue.main.async {
-                self.saveToDataBase(transactionModel: self.createDataBaseItem(base: base,
+                self.saveToDataBase(transactionModel: self.createDataBaseItem(amount: amount,
+                                                                              base: base,
                                                                               doubleFromCurrency: self.extractCurrencyValue(currencyKey: base),
                                                                               target: target, doubleToCurrency: self.extractCurrencyValue(currencyKey: target),
                                                                               exchangeRate: self.exchangeValue))
+                self.convertToRandomCurrencies(amount: amount, base: base)
             }
-
+            
         })
     }
 
@@ -109,5 +116,34 @@ extension CurrencyConversionViewModel {
         let amountInEuros = amount / baseToTargetRate
         let targetAmount = amountInEuros * targetToBaseRate
         return targetAmount
+    }
+
+    func convertToRandomCurrencies(amount: Double, base: String) {
+        randomTransactions.removeAll()
+        let targetCurrencies = getRandomCurrencies()
+        
+        for currency in targetCurrencies {
+            let exchangeValue = self.convertCurrency(amount: amount,
+                                                     baseToTargetRate: self.extractCurrencyValue(currencyKey: base),
+                                                     targetToBaseRate: self.extractCurrencyValue(currencyKey: currency))
+            randomTransactions.append(createDataBaseItem(amount: amount,
+                                                         base: base,
+                                                         doubleFromCurrency: self.extractCurrencyValue(currencyKey: base),
+                                                         target: currency,
+                                                         doubleToCurrency: self.extractCurrencyValue(currencyKey: currency),
+                                                         exchangeRate: exchangeValue,
+                                                         shouldSkipID: true))
+            
+        }
+    }
+
+    func getRandomCurrencies() -> [String] {
+        guard let rates = self.exchangeModel?.rates else {
+            return []
+        }
+        
+        let allCurrencies = Array(rates.keys)
+        let randomCurrencies = Array(allCurrencies.shuffled().prefix(10))
+        return randomCurrencies
     }
 }

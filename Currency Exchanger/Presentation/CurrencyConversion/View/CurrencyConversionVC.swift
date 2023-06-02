@@ -27,6 +27,7 @@ class CurrencyConversionVC: UIViewController, StoryboardLoadable {
     private var selectedToCurrency = ""
     var shouldShowDetailsScreen: (() -> Void)?
     var shouldShowRecentScreen: (() -> Void)?
+    var shouldShowOtherCurrenciesScreen: (([TransactionModel]) -> Void)?
 
     private var listOfCurrenciesSubscriber: AnyCancellable?
     private var amountToConvertSubscriber: AnyCancellable?
@@ -145,6 +146,10 @@ extension CurrencyConversionVC {
 
     @IBAction func recentBtnTap(_ sender: Any) {
         shouldShowRecentScreen?()
+    }
+
+    @IBAction func otherCurrenciesBtnTap(_ sender: Any) {
+        shouldShowOtherCurrenciesScreen?(currencyViewModel.randomTransactions)
     }
 
 }

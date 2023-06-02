@@ -8,22 +8,40 @@
 import UIKit
 
 class OtherCurrenciesConverionsVC: UIViewController, StoryboardLoadable {
-
+    
+    @IBOutlet weak var transactionsTableView: UITableView!
+    
+    var otherCurrenciesConverionsViewModel: OtherCurrenciesConverionsViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        assert(otherCurrenciesConverionsViewModel != nil)
+        setupTableView()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupTableView() {
+        transactionsTableView
+            .registerCellClassForNib(cellClass: TransactionTableViewCell.self)
+        transactionsTableView.dataSource = self
+        transactionsTableView.reloadData()
     }
-    */
-
 }
+
+extension OtherCurrenciesConverionsVC: UITableViewDataSource {
+    
+    
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        return otherCurrenciesConverionsViewModel.transactionsModel.count
+    }
+    func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TransactionTableViewCell.reuseID) as? TransactionTableViewCell
+        
+        let transactionModel = otherCurrenciesConverionsViewModel.transactionsModel[indexPath.row]
+        let cellModel = OtherCurrenciesConverionsViewModel.convertToCellModel(transactionModel)
+        cell?.configureCell(with: cellModel)
+        return cell ?? UITableViewCell()
+    }
+}
+

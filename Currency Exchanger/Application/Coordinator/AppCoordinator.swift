@@ -34,6 +34,10 @@ extension AppCoordinator {
             self?.showRecentConversionsVC()
             
         }
+        currencyVC.shouldShowOtherCurrenciesScreen = { [weak self] transactionsModel in
+            self?.showOtherCurrenciesConversion(transactionModel: transactionsModel)
+            
+        }
         router.setRootViewController(currencyVC, hideBar: false)
     }
     
@@ -72,6 +76,13 @@ extension AppCoordinator {
             }
         recentConversionsVC.recentConversionsViewModel = RecentConversionsViewModel(transactions: transactions)
         router.push(recentConversionsVC, animated: true, completion: nil)
+    }
+
+    func showOtherCurrenciesConversion(transactionModel: [TransactionModel]) {
+        let otherCurrenciesConverionsVC = OtherCurrenciesConverionsVC.loadFromStoryboard()
+        otherCurrenciesConverionsVC.otherCurrenciesConverionsViewModel = OtherCurrenciesConverionsViewModel(transactionsModel: transactionModel)
+        router.push(otherCurrenciesConverionsVC, animated: true, completion: nil)
+        
     }
 
 }

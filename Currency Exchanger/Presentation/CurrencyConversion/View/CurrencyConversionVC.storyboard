@@ -34,7 +34,7 @@
                                 <rect key="frame" x="20" y="59" width="353" height="689"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="FOc-24-6QG">
-                                        <rect key="frame" x="0.0" y="40" width="353" height="569"/>
+                                        <rect key="frame" x="0.0" y="40" width="353" height="621.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="kQ9-T6-zw3">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="100"/>
@@ -149,6 +149,15 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="recent"/>
                                                 <connections>
                                                     <action selector="recentBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zOi-fi-Ffh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neg-u7-P5y" userLabel="other">
+                                                <rect key="frame" x="0.0" y="587" width="353" height="34.333333333333371"/>
+                                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="other"/>
+                                                <connections>
+                                                    <action selector="otherCurrenciesBtnTap:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nmZ-fP-42m"/>
                                                 </connections>
                                             </button>
                                         </subviews>

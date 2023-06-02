@@ -16,9 +16,24 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="92d-4m-nvI">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="92d-4m-nvI" secondAttribute="bottom" id="ElM-Cd-VXh"/>
+                            <constraint firstItem="92d-4m-nvI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="N70-lQ-bHE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="92d-4m-nvI" secondAttribute="trailing" id="dJa-eZ-5bj"/>
+                            <constraint firstItem="92d-4m-nvI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="t3l-rU-TtV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="transactionsTableView" destination="92d-4m-nvI" id="P4x-x2-r4n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
