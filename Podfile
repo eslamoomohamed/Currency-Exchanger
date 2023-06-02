@@ -6,7 +6,7 @@ target 'Currency Exchanger' do
   use_frameworks!
 
   # Pods for Currency Exchanger
-    pod 'RxSwift'
+    pod 'SwiftLint'
     pod 'RealmSwift'
 
   target 'Currency ExchangerTests' do
