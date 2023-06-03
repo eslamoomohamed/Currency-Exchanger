@@ -53,6 +53,10 @@ class CurrencyConversionVC: UIViewController, StoryboardLoadable {
         setupAmountToConvertSubscriber()
         setupExchangeValueSubscriber()
     }
+
+    deinit {
+        handleSubscriberCancellation()
+    }
 }
 
 // MARK: Helper methods
@@ -89,7 +93,7 @@ extension CurrencyConversionVC {
         print("Text changed: \(text)")
     }
 
-    func swap() {
+    private func swap() {
         let temp = selectedFromCurrency
         selectedFromCurrency = selectedToCurrency
         selectedToCurrency = temp
@@ -97,22 +101,7 @@ extension CurrencyConversionVC {
         self.seconderyCurrencyTextField.text = selectedFromCurrency
     }
 
-}
-
-extension CurrencyConversionVC: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        currencyList.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        currencyList[row]
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    private func handleSelectedRowPickerView(pickerView: UIPickerView, row: Int) {
         guard currencyList.isEmpty != true else {return}
         if pickerView == fromPickerView {
             let selectedCurrency = currencyList[row]
@@ -127,6 +116,29 @@ extension CurrencyConversionVC: UIPickerViewDataSource, UIPickerViewDelegate {
             seconderyCurrencyTextField.resignFirstResponder()
             didSelectSeconedCurrency = true
         }
+    }
+
+}
+
+// MARK: UIPickerViewDataSource
+extension CurrencyConversionVC: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        currencyList.count
+    }
+}
+
+// MARK: UIPickerViewDelegate
+extension CurrencyConversionVC: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        currencyList[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        handleSelectedRowPickerView(pickerView: pickerView, row: row)
     }
 }
 
@@ -184,5 +196,13 @@ extension CurrencyConversionVC {
                 self?.resultValueLB.text = String(value)
                 print("Exchange Value Changed: \(value)")
             }
+    }
+
+    private func handleSubscriberCancellation() {
+        listOfCurrenciesSubscriber?.cancel()
+        amountToConvertSubscriber?.cancel()
+        conversionSubscriber?.cancel()
+        exchangeValueSubscriber?.cancel()
+        buttonSubscriber?.cancel()
     }
 }

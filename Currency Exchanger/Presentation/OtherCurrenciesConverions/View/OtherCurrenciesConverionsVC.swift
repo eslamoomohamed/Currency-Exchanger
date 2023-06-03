@@ -7,39 +7,33 @@
 
 import UIKit
 
-class OtherCurrenciesConverionsVC: UIViewController, StoryboardLoadable {
+class OtherCurrenciesConverionsVC: UIViewController, StoryboardLoadable, UIViewControllerHelper {
 
     @IBOutlet weak private var transactionsTableView: UITableView!
 
     var otherCurrenciesConverionsViewModel: OtherCurrenciesConverionsViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         assert(otherCurrenciesConverionsViewModel != nil)
-        setupTableView()
-    }
-
-    private func setupTableView() {
-        transactionsTableView
-            .registerCellClassForNib(cellClass: TransactionTableViewCell.self)
-        transactionsTableView.dataSource = self
-        transactionsTableView.reloadData()
+        setupTableView(tableView: transactionsTableView,
+                       cellClass: TransactionTableViewCell.self,
+                       dataSource: self)
     }
 }
 
+// MARK: TableView DataSource
 extension OtherCurrenciesConverionsVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return otherCurrenciesConverionsViewModel.transactionsModel.count
+        return otherCurrenciesConverionsViewModel.getCount()
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let reusID = TransactionTableViewCell.reuseID
         let cell = tableView.dequeueReusableCell(withIdentifier: reusID) as? TransactionTableViewCell
 
-        let transactionModel = otherCurrenciesConverionsViewModel.transactionsModel[indexPath.row]
-        let cellModel = OtherCurrenciesConverionsViewModel.convertToCellModel(transactionModel)
-        cell?.configureCell(with: cellModel)
+        cell?.configureCell(with: otherCurrenciesConverionsViewModel.getCellModel(at: indexPath))
         return cell ?? UITableViewCell()
     }
 }
