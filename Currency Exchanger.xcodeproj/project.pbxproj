@@ -28,6 +28,7 @@
 		1971AD862A2959AC00F2491C /* OtherCurrenciesConverionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971AD852A2959AC00F2491C /* OtherCurrenciesConverionsVC.swift */; };
 		1971AD882A2959BA00F2491C /* OtherCurrenciesConverionsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1971AD872A2959BA00F2491C /* OtherCurrenciesConverionsVC.storyboard */; };
 		1971AD8A2A295B5500F2491C /* OtherCurrenciesConverionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971AD892A295B5500F2491C /* OtherCurrenciesConverionsViewModel.swift */; };
+		198F82022A2BB1D90071F787 /* LatestRatesAPIRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198F82012A2BB1D90071F787 /* LatestRatesAPIRepositoryStub.swift */; };
 		199268B42A26BFF100097FD4 /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B32A26BFF100097FD4 /* ExchangeModel.swift */; };
 		199268B82A26C20100097FD4 /* FixerIoApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B72A26C20100097FD4 /* FixerIoApiConstants.swift */; };
 		199268BA2A272E3200097FD4 /* CurrencyConversionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B92A272E3200097FD4 /* CurrencyConversionModel.swift */; };
@@ -114,6 +115,7 @@
 		1971AD852A2959AC00F2491C /* OtherCurrenciesConverionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCurrenciesConverionsVC.swift; sourceTree = "<group>"; };
 		1971AD872A2959BA00F2491C /* OtherCurrenciesConverionsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherCurrenciesConverionsVC.storyboard; sourceTree = "<group>"; };
 		1971AD892A295B5500F2491C /* OtherCurrenciesConverionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCurrenciesConverionsViewModel.swift; sourceTree = "<group>"; };
+		198F82012A2BB1D90071F787 /* LatestRatesAPIRepositoryStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestRatesAPIRepositoryStub.swift; sourceTree = "<group>"; };
 		199268B32A26BFF100097FD4 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeModel.swift; sourceTree = "<group>"; };
 		199268B72A26C20100097FD4 /* FixerIoApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerIoApiConstants.swift; sourceTree = "<group>"; };
 		199268B92A272E3200097FD4 /* CurrencyConversionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionModel.swift; sourceTree = "<group>"; };
@@ -307,6 +309,22 @@
 				1971AD872A2959BA00F2491C /* OtherCurrenciesConverionsVC.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		198F81FF2A2BB1D90071F787 /* DataTests */ = {
+			isa = PBXGroup;
+			children = (
+				198F82002A2BB1D90071F787 /* Repositries */,
+			);
+			path = DataTests;
+			sourceTree = "<group>";
+		};
+		198F82002A2BB1D90071F787 /* Repositries */ = {
+			isa = PBXGroup;
+			children = (
+				198F82012A2BB1D90071F787 /* LatestRatesAPIRepositoryStub.swift */,
+			);
+			path = Repositries;
 			sourceTree = "<group>";
 		};
 		199268AB2A26B39100097FD4 /* Comon */ = {
@@ -580,6 +598,7 @@
 		19F9D6D32A26A7A700D4536A /* Currency ExchangerTests */ = {
 			isa = PBXGroup;
 			children = (
+				198F81FF2A2BB1D90071F787 /* DataTests */,
 				19F9D6D42A26A7A700D4536A /* CurrencyExchangerTests.swift */,
 			);
 			path = "Currency ExchangerTests";
@@ -940,6 +959,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19F9D6D52A26A7A700D4536A /* CurrencyExchangerTests.swift in Sources */,
+				198F82022A2BB1D90071F787 /* LatestRatesAPIRepositoryStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
