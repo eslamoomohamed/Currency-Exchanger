@@ -24,10 +24,8 @@ extension AppCoordinator {
 
     func showCurrencyVC() {
         let currencyVC = CurrencyConversionVC.loadFromStoryboard()
-        let currencyConversionUseCase = dependencyProvider.useCasesAssembler.assembleCurrencyConversionUseCase()
         let latestRatesUseCase = dependencyProvider.useCasesAssembler.assembleLatestRateUseCase()
-        currencyVC.currencyViewModel = CurrencyConversionViewModel(currencyConversionUseCase: currencyConversionUseCase,
-                                                                   latestRatesUseCase: latestRatesUseCase,
+        currencyVC.currencyViewModel = CurrencyConversionViewModel(latestRatesUseCase: latestRatesUseCase,
                                                                    transactionDB: dependencyProvider.transactionDb)
         currencyVC.shouldShowDetailsScreen = { [weak self] in
             self?.showCurrenciesDetailsVC()

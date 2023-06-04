@@ -9,17 +9,12 @@ import Foundation
 import Combine
 
 protocol ICurrencyConversionViewModel {
-    func convertCurrency(amount: Double,
-                         fromCurrency: Currency,
-                         toCurrency: Currency,
-                         completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void)
     func getLatestRates(baseCurrency: String, symbols: String?) -> AnyPublisher<ExchangeModel, Error>
     func getLatestRatesList(baseCurrency: String)
 }
 
 class CurrencyConversionViewModel: ICurrencyConversionViewModel {
 
-    private let currencyConversionUseCase: CurrencyConversionUseCaseInterface
     private let latestRatesUseCase: LatestRateUseCaseInterface
     private var exchangeModel: ExchangeModel?
     private let transactionDB: RealmDbType
@@ -30,10 +25,8 @@ class CurrencyConversionViewModel: ICurrencyConversionViewModel {
     @Published var exchangeValue = 1.0
     var randomTransactions: [TransactionModel] = [TransactionModel]()
 
-    init(currencyConversionUseCase: CurrencyConversionUseCaseInterface,
-         latestRatesUseCase: LatestRateUseCaseInterface,
+    init(latestRatesUseCase: LatestRateUseCaseInterface,
          transactionDB: RealmDbType) {
-        self.currencyConversionUseCase = currencyConversionUseCase
         self.latestRatesUseCase = latestRatesUseCase
         self.transactionDB = transactionDB
         getLatestRatesList(baseCurrency: FixerIoApiConstants.baseCurrency)
@@ -47,21 +40,12 @@ extension CurrencyConversionViewModel {
         return latestRatesUseCase.fetchLatestRates(baseCurrency: baseCurrency, symbols: symbols)
     }
 
-    func convertCurrency(amount: Double,
-                         fromCurrency: Currency,
-                         toCurrency: Currency,
-                         completion: @escaping (Result<CurrencyConversionModel, Error>) -> Void) {
-        currencyConversionUseCase.convertCurrency(amount: amount,
-                                                  fromCurrency: fromCurrency,
-                                                  toCurrency: toCurrency,
-                                                  completion: completion)
-    }
-
     func getLatestRatesList(baseCurrency: String) {
         guard retrieveListOfCurrenciesFromUserDefaults() == nil else {return}
         listCancellable = latestRatesUseCase.fetchLatestRates(baseCurrency: baseCurrency, symbols: nil)
             .sink(receiveCompletion: { completion in
             }, receiveValue: { exchangeModel in
+                self.exchangeModel = exchangeModel
                 UserDefaults.standard.set(Array(exchangeModel.rates.keys), forKey: "ListOfCurrencies")
             })
     }
