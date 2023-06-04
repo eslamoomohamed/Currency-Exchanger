@@ -139,13 +139,3 @@ class NetworkService: NetworkServiceInterface {
     }
 
 }
-
-enum NetworkError: Error {
-    case badRequest
-    case badInput
-    case noData
-    case wrongUrl
-    case unAuthorized
-    case invalidResponse
-    case statusCodeError(Int)
-}

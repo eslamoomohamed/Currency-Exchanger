@@ -35,6 +35,7 @@
 		198F82132A2BFA5F0071F787 /* RealmDbTypeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198F82122A2BFA5F0071F787 /* RealmDbTypeMock.swift */; };
 		198F82182A2C9E840071F787 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198F82172A2C9E840071F787 /* Helpers.swift */; };
 		198F821B2A2CA2430071F787 /* ExchangeModel.json in Sources */ = {isa = PBXBuildFile; fileRef = 198F821A2A2CA2430071F787 /* ExchangeModel.json */; };
+		198F821D2A2CAFA50071F787 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198F821C2A2CAFA50071F787 /* Errors.swift */; };
 		199268B42A26BFF100097FD4 /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B32A26BFF100097FD4 /* ExchangeModel.swift */; };
 		199268B82A26C20100097FD4 /* FixerIoApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B72A26C20100097FD4 /* FixerIoApiConstants.swift */; };
 		199268BA2A272E3200097FD4 /* CurrencyConversionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199268B92A272E3200097FD4 /* CurrencyConversionModel.swift */; };
@@ -128,6 +129,7 @@
 		198F82122A2BFA5F0071F787 /* RealmDbTypeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDbTypeMock.swift; sourceTree = "<group>"; };
 		198F82172A2C9E840071F787 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		198F821A2A2CA2430071F787 /* ExchangeModel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExchangeModel.json; sourceTree = "<group>"; };
+		198F821C2A2CAFA50071F787 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		199268B32A26BFF100097FD4 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeModel.swift; sourceTree = "<group>"; };
 		199268B72A26C20100097FD4 /* FixerIoApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerIoApiConstants.swift; sourceTree = "<group>"; };
 		199268B92A272E3200097FD4 /* CurrencyConversionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionModel.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				199268ED2A277F6200097FD4 /* HTTPMethod.swift */,
 				199268EF2A277F8900097FD4 /* RequestParams.swift */,
 				199268F12A277FBB00097FD4 /* HTTPHeaderName.swift */,
+				198F821C2A2CAFA50071F787 /* Errors.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1013,6 +1016,7 @@
 				1971AD752A29356E00F2491C /* TransactionCellModel.swift in Sources */,
 				199268DF2A27642700097FD4 /* Router.swift in Sources */,
 				195511C92A2A703700E04C05 /* CurrencyConverter.swift in Sources */,
+				198F821D2A2CAFA50071F787 /* Errors.swift in Sources */,
 				199268FF2A27AA5000097FD4 /* LatestRatesRequest.swift in Sources */,
 				199268E42A276D4400097FD4 /* DependencyProvider.swift in Sources */,
 				199268CB2A27462C00097FD4 /* CurrencyConversionAPIRepository.swift in Sources */,
