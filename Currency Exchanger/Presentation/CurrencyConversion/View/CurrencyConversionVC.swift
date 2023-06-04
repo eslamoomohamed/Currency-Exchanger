@@ -73,6 +73,7 @@ extension CurrencyConversionVC {
 
     private func configureListOfCurrenciesSubscriber() {
         listOfCurrenciesSubscriber = currencyViewModel.listOfCurrenciesSubject
+            .receive(on: RunLoop.main)
             .sink { [weak self] currencies in
                 self?.updatePickerView(with: currencies)
             }

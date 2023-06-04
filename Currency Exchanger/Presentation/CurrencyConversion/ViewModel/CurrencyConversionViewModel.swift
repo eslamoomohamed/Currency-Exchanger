@@ -45,6 +45,7 @@ extension CurrencyConversionViewModel {
         listCancellable = latestRatesUseCase.fetchLatestRates(baseCurrency: baseCurrency, symbols: nil)
             .sink(receiveCompletion: { completion in
             }, receiveValue: { exchangeModel in
+                self.listOfCurrenciesSubject.send(Array(exchangeModel.rates.keys))
                 self.exchangeModel = exchangeModel
                 UserDefaults.standard.set(Array(exchangeModel.rates.keys), forKey: "ListOfCurrencies")
             })
